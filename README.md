@@ -18,15 +18,23 @@ The project focuses on analyzing core banking loan data to generate actionable i
 ✅ Good Loan vs ❌ Bad Loan KPIs
 
 Good Loan KPIs
+
 Good Loan Application Percentage
+
 Number of Good Loan Applications
+
 Good Loan Funded Amount
+
 Good Loan Total Received Amount
 
 Bad Loan KPIs
+
 Bad Loan Application Percentage
+
 Number of Bad Loan Applications
+
 Bad Loan Funded Amount
+
 Bad Loan Total Received Amount
 
 📊 Data Visualizations
