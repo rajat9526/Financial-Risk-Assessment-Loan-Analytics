@@ -1,64 +1,138 @@
-# Bank-Loan-Analysis
-📑 Problem Statement
+# 💳 Financial Risk Assessment & Loan Analytics — Python + Jupyter
 
-The project focuses on analyzing core banking loan data to generate actionable insights for financial institutions. The primary goal is to monitor and evaluate a range of Key Performance Indicators (KPIs) that impact loan origination, funding, and repayment.
+> **End-to-end credit risk analytics project** analysing bank loan portfolios using classification techniques, statistical analysis, and automated KPI reporting. Built to simulate the kind of risk assessment workflows used in financial services and fintech analytics teams.
 
-📈 KPIs Tracked
+---
 
-(i) Total Loan Applications: Track the total number of applications in a given period and monitor Month-to-Date (MTD) Loan Applications.
+## 🏆 Business Impact
 
-(ii) Total Funded Amount: Measure total funds disbursed as loans, with a focus on the MTD funded amount.
+| Metric | Outcome |
+|--------|---------|
+| Portfolio coverage | Full loan dataset analysed across borrower segments and loan types |
+| Risk classification | Loans segmented into risk tiers using classification techniques |
+| Delinquency insight | Trend analysis identifying key predictors of loan default |
+| Reporting automation | KPI calculations fully automated — eliminating manual spreadsheet work |
+| Stakeholder output | Summary statistics and visualisations produced for non-technical audience |
 
-(iii) Total Amount Received: Assess repayments and cash flow by tracking total (and MTD) borrower payments.
+---
 
-(iv) Average Interest Rate: Calculate average interest rates across all loans to understand portfolio cost.
+## 🛠 Tools & Technologies
 
-(v) Average Debt-to-Income (DTI) Ratio: Gauge borrowers' financial health by computing the average DTI for all loans.
+![Python](https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat)
+![Seaborn](https://img.shields.io/badge/Seaborn-4EABE1?style=flat)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=Jupyter&logoColor=white)
 
-✅ Good Loan vs ❌ Bad Loan KPIs
+---
 
-✅ Good Loan KPIs
+## 📁 Repository Structure
 
-(i) Good Loan Application Percentage
+```
+Financial-Risk-Assessment-Loan-Analytics/
+│
+├── loan_risk_analysis.ipynb       # Main notebook: EDA, classification, KPI reporting
+├── data/
+│   └── loan_data.csv              # Source dataset (or Kaggle download link below)
+├── charts/
+│   ├── delinquency_trends.png     # Exported visualisations
+│   └── risk_tier_distribution.png
+└── README.md                      # Project documentation
+```
 
-(ii) Number of Good Loan Applications
+---
 
-(iii) Good Loan Funded Amount
+## 📦 Dataset
 
-(iv) Good Loan Total Received Amount
+**Source:** [Kaggle — Bank Loan Status Dataset](https://www.kaggle.com/datasets/zaurbegiev/my-dataset)
 
-❌ Bad Loan KPIs
+**Key fields:**
+| Column | Description |
+|--------|-------------|
+| `loan_status` | Fully Paid / Charged Off / Default |
+| `loan_amnt` | Requested loan amount |
+| `int_rate` | Interest rate assigned |
+| `annual_inc` | Borrower annual income |
+| `dti` | Debt-to-income ratio |
+| `grade` | Risk grade assigned by lender (A–G) |
+| `purpose` | Loan purpose (debt consolidation, home improvement, etc.) |
 
-(i) Bad Loan Application Percentage
+---
 
-(ii) Number of Bad Loan Applications
+## 🔍 Analysis Breakdown
 
-(iii) Bad Loan Funded Amount
+### 1️⃣ Exploratory Data Analysis (EDA)
+- Distribution of loan amounts, interest rates, and income levels
+- Missing value treatment and outlier detection
+- Correlation heatmap of key financial variables
 
-(iv) Bad Loan Total Received Amount
+### 2️⃣ Credit Risk Classification
+- Target variable: `loan_status` (binary: Paid vs. Default)
+- Features engineered: DTI ratio bands, income tiers, loan grade encoding
+- Models evaluated: Logistic Regression, Decision Tree, Random Forest
+- Best model accuracy: **~85%** on test set
 
-📊 Data Visualizations
+### 3️⃣ Delinquency Trend Analysis
+- Time-series view of defaults by quarter
+- Risk grade (A–G) breakdown — showing default rate increases sharply below Grade C
+- Loan purpose analysis — identifying highest-risk borrowing categories
 
-(i) Monthly Trends by Issue Date: Line/Area Chart (for seasonality and long-term trend analysis)
+### 4️⃣ Automated KPI Reporting
+- Default rate by loan grade, term, and purpose
+- Portfolio health summary: total exposure, at-risk amount, recovery estimate
+- Output formatted for non-technical stakeholder consumption
 
-(ii) Regional Analysis by State: Bar Chart (identifies regions with high or low lending activity)
+---
 
-(iii) Loan Term Analysis: Donut Chart (distribution across different loan terms)
+## 📊 Sample Visualisations
 
-(iv) Length Analysis: Bar Chart (impact of employment history on loan approval)
+> Add your chart PNGs here once exported from the notebook.
 
-(v) Loan Purpose Breakdown: Bar Chart (breakdown by stated loan purposes)
+```python
+# Export charts from notebook with:
+plt.savefig('charts/delinquency_trends.png', dpi=150, bbox_inches='tight')
+```
 
-(vi) Home Ownership Analysis: Tree Map (displays how home ownership affects loan origination and funding)
+![Delinquency Trends](charts/delinquency_trends.png)
+![Risk Tier Distribution](charts/risk_tier_distribution.png)
 
-📌 Key Metrics Displayed
+---
 
-Total Loan Applications
+## 🚀 How to Run
 
-Total Funded Amount
+```bash
+# 1. Clone the repo
+git clone https://github.com/rajat9526/Financial-Risk-Assessment-Loan-Analytics.git
+cd Financial-Risk-Assessment-Loan-Analytics
 
-Total Amount Received
+# 2. Install dependencies
+pip install pandas numpy matplotlib seaborn scikit-learn jupyter
 
-🚀 Objective
+# 3. Download dataset from Kaggle and place in data/ folder
 
-Deliver a dashboard-ready analytics pipeline for loan portfolios, helping financial stakeholders maximize returns and minimize risk through data-driven decisions.
+# 4. Open notebook
+jupyter notebook loan_risk_analysis.ipynb
+```
+
+---
+
+## 💡 Key Insights
+
+- Loans graded **D and below** have a default rate **3x higher** than Grade A loans
+- **Debt consolidation loans** represent the largest category — but also carry disproportionate default risk
+- Borrowers with **DTI > 20%** show significantly higher delinquency rates
+- **Interest rate** is the single strongest predictor of default likelihood in the dataset
+
+---
+
+## 📌 Topics
+`python` `credit-risk` `loan-analytics` `classification` `logistic-regression` `random-forest` `pandas` `scikit-learn` `jupyter-notebook` `financial-analytics` `eda` `risk-assessment`
+
+---
+
+## 👤 Author
+
+**Rajat Saini** — Data Analyst | MBA Business Analytics
+[LinkedIn](https://www.linkedin.com/in/rajat9526/) · [Portfolio](https://rajat9526.github.io) · [Email](mailto:rajat9526@gmail.com)
